@@ -55,7 +55,7 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.github.Justson.AgentWeb'
             artifactId = 'agentweb-core'
-            version = 'v5.0.7-androidx'
+            version = 'v1.0.0-x5'
         }
     }
 }
