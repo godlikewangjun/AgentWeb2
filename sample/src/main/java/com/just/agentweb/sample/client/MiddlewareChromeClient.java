@@ -1,8 +1,9 @@
 package com.just.agentweb.sample.client;
 
 import android.util.Log;
-import android.webkit.JsResult;
-import android.webkit.WebView;
+
+import com.tencent.smtt.export.external.interfaces.JsResult;
+import com.tencent.smtt.sdk.WebView;
 
 import com.just.agentweb.MiddlewareWebChromeBase;
 
@@ -13,9 +14,9 @@ import com.just.agentweb.MiddlewareWebChromeBase;
 public class MiddlewareChromeClient extends MiddlewareWebChromeBase {
     public MiddlewareChromeClient() {
     }
+
     @Override
     public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
-        Log.i("Info","onJsAlert:"+url);
         return super.onJsAlert(view, url, message, result);
     }
 

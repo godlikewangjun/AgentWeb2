@@ -14,7 +14,7 @@
 package com.just.agentweb.sample.sonic;
 
 import android.os.Bundle;
-import android.webkit.WebView;
+import com.tencent.smtt.sdk.WebView;
 
 import com.just.agentweb.AgentWeb;
 import com.tencent.sonic.sdk.SonicSessionClient;

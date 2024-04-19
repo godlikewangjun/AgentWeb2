@@ -16,7 +16,8 @@
 
 package com.just.agentweb;
 
-import android.webkit.ValueCallback;
+
+import com.tencent.smtt.sdk.ValueCallback;
 
 /**
  * @author cenxiaozhong

@@ -18,7 +18,7 @@ package com.just.agentweb;
 
 import android.text.TextUtils;
 import android.util.Log;
-import android.webkit.WebView;
+import com.tencent.smtt.sdk.WebView;
 
 import org.json.JSONArray;
 import org.json.JSONException;

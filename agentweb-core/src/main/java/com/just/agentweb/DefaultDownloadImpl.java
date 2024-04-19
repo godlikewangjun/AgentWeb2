@@ -22,7 +22,9 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.webkit.WebView;
+
+import com.tencent.smtt.sdk.DownloadListener;
+import com.tencent.smtt.sdk.WebView;
 
 import com.download.library.DownloadImpl;
 import com.download.library.DownloadListenerAdapter;
@@ -39,7 +41,7 @@ import androidx.annotation.Nullable;
  * @author cenxiaozhong
  * @date 2017/5/13
  */
-public class DefaultDownloadImpl implements android.webkit.DownloadListener {
+public class DefaultDownloadImpl implements DownloadListener {
     /**
      * Application Context
      */

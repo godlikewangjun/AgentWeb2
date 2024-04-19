@@ -33,13 +33,14 @@ import androidx.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
-import android.webkit.HttpAuthHandler;
-import android.webkit.SslErrorHandler;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebResourceResponse;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+
+import com.tencent.smtt.export.external.interfaces.HttpAuthHandler;
+import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
+import com.tencent.smtt.export.external.interfaces.WebResourceError;
+import com.tencent.smtt.export.external.interfaces.WebResourceRequest;
+import com.tencent.smtt.export.external.interfaces.WebResourceResponse;
+import com.tencent.smtt.sdk.WebView;
+import com.tencent.smtt.sdk.WebViewClient;
 
 import com.alipay.sdk.app.H5PayCallback;
 import com.alipay.sdk.app.PayTask;
@@ -78,14 +79,6 @@ public class DefaultWebClient extends MiddlewareWebClientBase {
 	 * intent ' s scheme
 	 */
 	public static final String INTENT_SCHEME = "intent://";
-	/**
-	 * Wechat pay scheme ，用于唤醒微信支付
-	 */
-	public static final String WEBCHAT_PAY_SCHEME = "weixin://wap/pay?";
-	/**
-	 * 支付宝
-	 */
-	public static final String ALIPAYS_SCHEME = "alipays://";
 	/**
 	 * http scheme
 	 */
@@ -201,16 +194,6 @@ public class DefaultWebClient extends MiddlewareWebClientBase {
 			LogUtils.i(TAG, "intent url ");
 			return true;
 		}
-		// 微信支付
-		if (url.startsWith(WEBCHAT_PAY_SCHEME)) {
-			LogUtils.i(TAG, "lookup wechat to pay ~~");
-			startActivity(url);
-			return true;
-		}
-		if (url.startsWith(ALIPAYS_SCHEME) && lookup(url)) {
-			LogUtils.i(TAG, "alipays url lookup alipay ~~ ");
-			return true;
-		}
 		if (queryActiviesNumber(url) > 0 && deepLink(url)) {
 			LogUtils.i(TAG, "intercept url:" + url);
 			return true;
@@ -288,15 +271,6 @@ public class DefaultWebClient extends MiddlewareWebClientBase {
 		//Intent scheme
 		if (url.startsWith(INTENT_SCHEME)) {
 			handleIntentUrl(url);
-			return true;
-		}
-		//微信支付
-		if (url.startsWith(WEBCHAT_PAY_SCHEME)) {
-			startActivity(url);
-			return true;
-		}
-		//支付宝
-		if (url.startsWith(ALIPAYS_SCHEME) && lookup(url)) {
 			return true;
 		}
 		//打开url 相对应的页面
@@ -461,13 +435,6 @@ public class DefaultWebClient extends MiddlewareWebClientBase {
 		}
 		super.onPageStarted(view, url, favicon);
 
-	}
-
-	@Override
-	public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-		if (mAgentWebUIController.get() != null) {
-			mAgentWebUIController.get().onShowSslCertificateErrorDialog(view, handler, error);
-		}
 	}
 
 

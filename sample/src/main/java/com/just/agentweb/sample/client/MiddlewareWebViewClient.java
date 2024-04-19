@@ -2,7 +2,7 @@ package com.just.agentweb.sample.client;
 
 import android.util.Log;
 import android.webkit.WebResourceRequest;
-import android.webkit.WebView;
+import com.tencent.smtt.sdk.WebView;
 
 import com.just.agentweb.MiddlewareWebClientBase;
 
@@ -39,10 +39,9 @@ public class MiddlewareWebViewClient extends MiddlewareWebClientBase {
     private static int count = 1;
 
     @Override
-    public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+    public boolean shouldOverrideUrlLoading(WebView view, com.tencent.smtt.export.external.interfaces.WebResourceRequest request) {
         Log.i("Info", "MiddlewareWebViewClient -- >  shouldOverrideUrlLoading:" + request.getUrl().toString() + "  c:" + (count++));
         return super.shouldOverrideUrlLoading(view, request);
-
     }
 
     @Override

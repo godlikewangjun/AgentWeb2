@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.net.http.SslError;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,12 +21,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.webkit.MimeTypeMap;
-import android.webkit.SslErrorHandler;
 import android.webkit.ValueCallback;
-import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
-import android.webkit.WebView;
+
+import com.tencent.smtt.export.external.interfaces.SslError;
+import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
+import com.tencent.smtt.export.external.interfaces.WebResourceError;
+import com.tencent.smtt.sdk.DownloadListener;
+import com.tencent.smtt.sdk.WebView;
+
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -72,6 +75,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
+
 import top.zibin.luban.Luban;
 
 /**
@@ -204,7 +208,7 @@ public class AgentWebFragment extends Fragment implements FragmentKeyDown, FileC
              * @return WebListenerManager
              */
             @Override
-            public WebListenerManager setDownloader(WebView webView, android.webkit.DownloadListener downloadListener) {
+            public WebListenerManager setDownloader(WebView webView, DownloadListener downloadListener) {
                 return super.setDownloader(webView,
                         new DefaultDownloadImpl(getActivity(),
                                 webView,
@@ -289,23 +293,6 @@ public class AgentWebFragment extends Fragment implements FragmentKeyDown, FileC
 
         private HashMap<String, Long> timer = new HashMap<>();
 
-        @Override
-        public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-            super.onReceivedError(view, request, error);
-        }
-
-        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-            return super.shouldOverrideUrlLoading(view, request);
-        }
-
-        @Nullable
-        @Override
-        public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
-            return super.shouldInterceptRequest(view, request);
-        }
-
         //
         @Override
         public boolean shouldOverrideUrlLoading(final WebView view, String url) {
@@ -353,23 +340,9 @@ public class AgentWebFragment extends Fragment implements FragmentKeyDown, FileC
         }*/
 
         @Override
-        public void onReceivedHttpError(WebView view, WebResourceRequest request, WebResourceResponse errorResponse) {
-            super.onReceivedHttpError(view, request, errorResponse);
-
-//			Log.i(TAG, "onReceivedHttpError:" + 3 + "  request:" + mGson.toJson(request) + "  errorResponse:" + mGson.toJson(errorResponse));
-        }
-
-        @Override
         public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
             handler.proceed();
             super.onReceivedSslError(view, handler, error);
-        }
-
-        @Override
-        public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-            super.onReceivedError(view, errorCode, description, failingUrl);
-
-//			Log.i(TAG, "onReceivedError:" + errorCode + "  description:" + description + "  errorResponse:" + failingUrl);
         }
     };
 
@@ -652,16 +625,13 @@ public class AgentWebFragment extends Fragment implements FragmentKeyDown, FileC
                 return false;
             }
 
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                Log.e(TAG, "MiddlewareWebClientBase#shouldOverrideUrlLoading request url:" + request.getUrl().toString());
-                return super.shouldOverrideUrlLoading(view, request);
-            }
 
             @Override
-            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-                if (request.isForMainFrame() && error.getErrorCode() != -1) {
-                    super.onReceivedError(view, request, error);
+            public void onReceivedError(WebView view, com.tencent.smtt.export.external.interfaces.WebResourceRequest request, WebResourceError error) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if (request.isForMainFrame() && error.getErrorCode() != -1) {
+                        super.onReceivedError(view, request, error);
+                    }
                 }
             }
         };

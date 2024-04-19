@@ -16,10 +16,10 @@
 
 package com.just.agentweb;
 
-import android.webkit.DownloadListener;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import com.tencent.smtt.sdk.DownloadListener;
+import com.tencent.smtt.sdk.WebView;
+import com.tencent.smtt.sdk.WebViewClient;
+import com.tencent.smtt.sdk.WebChromeClient;
 
 /**
  * @author cenxiaozhong

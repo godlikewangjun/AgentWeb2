@@ -4,7 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import android.view.View;
-import android.webkit.WebView;
+import com.tencent.smtt.sdk.WebView;
 import android.widget.FrameLayout;
 
 import com.just.agentweb.IWebLayout;

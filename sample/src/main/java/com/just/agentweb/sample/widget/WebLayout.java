@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.webkit.WebView;
+import com.tencent.smtt.sdk.WebView;
 
 import com.just.agentweb.IWebLayout;
 import com.just.agentweb.sample.R;
@@ -26,7 +26,7 @@ public class WebLayout implements IWebLayout {
         this.mActivity = activity;
         mTwinklingRefreshLayout = (TwinklingRefreshLayout) LayoutInflater.from(activity).inflate(R.layout.fragment_twk_web, null);
         mTwinklingRefreshLayout.setPureScrollModeOn();
-        mWebView = (WebView) mTwinklingRefreshLayout.findViewById(R.id.webView);
+        mWebView =  mTwinklingRefreshLayout.findViewById(R.id.webView);
     }
 
     @NonNull

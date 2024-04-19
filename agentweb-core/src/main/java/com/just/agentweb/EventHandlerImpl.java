@@ -17,7 +17,7 @@
 package com.just.agentweb;
 
 import android.view.KeyEvent;
-import android.webkit.WebView;
+import com.tencent.smtt.sdk.WebView;
 
 /**
  * IEventHandler 对事件的处理，主要是针对

@@ -24,8 +24,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
+
+import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient;
+import com.tencent.smtt.sdk.WebChromeClient;
+import com.tencent.smtt.sdk.WebView;
 import android.widget.FrameLayout;
 import androidx.core.util.Pair;
 import java.util.HashSet;
@@ -42,7 +44,7 @@ public class VideoImpl implements IVideo, EventInterceptor {
     private Set<Pair<Integer, Integer>> mFlags = null;
     private View mMoiveView = null;
     private ViewGroup mMoiveParentView = null;
-    private WebChromeClient.CustomViewCallback mCallback;
+    private IX5WebChromeClient.CustomViewCallback mCallback;
     private int mOriginalOrientation;
 
     public VideoImpl(Activity mActivity, WebView webView) {
@@ -52,7 +54,7 @@ public class VideoImpl implements IVideo, EventInterceptor {
     }
 
     @Override
-    public void onShowCustomView(View view, WebChromeClient.CustomViewCallback callback) {
+    public void onShowCustomView(View view, IX5WebChromeClient.CustomViewCallback callback) {
         Activity mActivity;
         if ((mActivity = this.mActivity) == null || mActivity.isFinishing()) {
             return;

@@ -35,8 +35,8 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import android.webkit.ValueCallback;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
+import com.tencent.smtt.sdk.WebChromeClient;
+import com.tencent.smtt.sdk.WebView;
 
 import androidx.annotation.NonNull;
 

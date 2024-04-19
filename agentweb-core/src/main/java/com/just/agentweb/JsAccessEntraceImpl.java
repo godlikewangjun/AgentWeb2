@@ -18,8 +18,9 @@ package com.just.agentweb;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.webkit.ValueCallback;
-import android.webkit.WebView;
+
+import com.tencent.smtt.sdk.ValueCallback;
+import com.tencent.smtt.sdk.WebView;
 
 
 /**

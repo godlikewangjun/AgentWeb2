@@ -22,15 +22,19 @@ import android.os.Build;
 import android.os.Message;
 import androidx.annotation.RequiresApi;
 import android.view.View;
-import android.webkit.ConsoleMessage;
-import android.webkit.GeolocationPermissions;
-import android.webkit.JsPromptResult;
-import android.webkit.JsResult;
-import android.webkit.PermissionRequest;
-import android.webkit.ValueCallback;
-import android.webkit.WebChromeClient;
-import android.webkit.WebStorage;
-import android.webkit.WebView;
+
+import com.tencent.smtt.export.external.interfaces.ConsoleMessage;
+import com.tencent.smtt.export.external.interfaces.GeolocationPermissionsCallback;
+import com.tencent.smtt.export.external.interfaces.JsPromptResult;
+import com.tencent.smtt.export.external.interfaces.JsResult;
+import com.tencent.smtt.export.external.interfaces.PermissionRequest;
+import  com.tencent.smtt.sdk.GeolocationPermissions;
+import  com.tencent.smtt.sdk.ValueCallback;
+
+import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient;
+import com.tencent.smtt.sdk.WebChromeClient;
+import  com.tencent.smtt.sdk.WebStorage;
+import com.tencent.smtt.sdk.WebView;
 
 import java.lang.reflect.Method;
 
@@ -92,7 +96,7 @@ public class WebChromeClientDelegate extends WebChromeClient {
     }
 
     @Override
-    public void onShowCustomView(View view, CustomViewCallback callback) {
+    public void onShowCustomView(View view, IX5WebChromeClient.CustomViewCallback callback) {
         if (this.mDelegate != null) {
             this.mDelegate.onShowCustomView(view, callback);
             return;
@@ -103,7 +107,7 @@ public class WebChromeClientDelegate extends WebChromeClient {
 
     @Override
     public void onShowCustomView(View view, int requestedOrientation,
-                                 CustomViewCallback callback) {
+                                 IX5WebChromeClient.CustomViewCallback callback) {
         if (this.mDelegate != null) {
             this.mDelegate.onShowCustomView(view, requestedOrientation, callback);
             return;
@@ -202,7 +206,7 @@ public class WebChromeClientDelegate extends WebChromeClient {
 
     @Override
     public void onGeolocationPermissionsShowPrompt(String origin,
-                                                   GeolocationPermissions.Callback callback) {
+                                                   GeolocationPermissionsCallback callback) {
         if (this.mDelegate != null) {
             this.mDelegate.onGeolocationPermissionsShowPrompt(origin, callback);
             return;
@@ -214,7 +218,6 @@ public class WebChromeClientDelegate extends WebChromeClient {
     /**
      * notify the host application that a request for Geolocation permissions,
      * made with a previous call to
-     * {@link #onGeolocationPermissionsShowPrompt(String, GeolocationPermissions.Callback) onGeolocationPermissionsShowPrompt()}
      * has been canceled. Any related UI should therefore be hidden.
      */
     @Override
@@ -255,16 +258,6 @@ public class WebChromeClientDelegate extends WebChromeClient {
             return this.mDelegate.onJsTimeout();
         }
         return super.onJsTimeout();
-    }
-
-    @Override
-    @Deprecated
-    public void onConsoleMessage(String message, int lineNumber, String sourceID) {
-        if (this.mDelegate != null) {
-            this.mDelegate.onConsoleMessage(message, lineNumber, sourceID);
-            return;
-        }
-        super.onConsoleMessage(message, lineNumber, sourceID);
     }
 
     @Override

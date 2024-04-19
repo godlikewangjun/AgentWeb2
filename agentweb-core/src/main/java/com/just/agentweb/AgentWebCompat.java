@@ -4,7 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
-import android.webkit.WebView;
+import com.tencent.smtt.sdk.WebView;
 
 import java.io.File;
 import java.io.RandomAccessFile;

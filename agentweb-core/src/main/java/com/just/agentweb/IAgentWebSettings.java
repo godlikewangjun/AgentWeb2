@@ -16,14 +16,15 @@
 
 package com.just.agentweb;
 
-import android.webkit.WebView;
+import com.tencent.smtt.sdk.WebSettings;
+import com.tencent.smtt.sdk.WebView;
 
 /**
  * @author cenxiaozhong
  * @since 1.0.0
  */
 
-public interface IAgentWebSettings<T extends android.webkit.WebSettings> {
+public interface IAgentWebSettings<T extends WebSettings> {
 
     IAgentWebSettings toSetting(WebView webView);
 

@@ -18,7 +18,8 @@ package com.just.agentweb;
 
 import android.os.Build;
 import androidx.annotation.RequiresApi;
-import android.webkit.ValueCallback;
+
+import com.tencent.smtt.sdk.ValueCallback;
 
 
 /**

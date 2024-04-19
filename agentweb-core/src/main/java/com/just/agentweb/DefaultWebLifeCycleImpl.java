@@ -17,7 +17,7 @@
 package com.just.agentweb;
 
 import android.os.Build;
-import android.webkit.WebView;
+import com.tencent.smtt.sdk.WebView;
 
 /**
  * @author cenxiaozhong

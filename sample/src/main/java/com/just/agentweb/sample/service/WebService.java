@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import androidx.annotation.Nullable;
 import android.util.Log;
-import android.webkit.WebView;
+import com.tencent.smtt.sdk.WebView;
 
 /**
  * @author xiaozhongcen

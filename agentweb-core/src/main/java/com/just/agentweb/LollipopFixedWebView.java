@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.webkit.WebView;
+import com.tencent.smtt.sdk.WebView;
 
 /**
  * 修复 Android 5.0 & 5.1 打开 WebView 闪退问题：
@@ -27,7 +27,7 @@ public class LollipopFixedWebView extends WebView {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public LollipopFixedWebView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(getFixedContext(context), attrs, defStyleAttr, defStyleRes);
+        super(getFixedContext(context), attrs, defStyleAttr, false);
     }
 
     public LollipopFixedWebView(Context context, AttributeSet attrs, int defStyleAttr, boolean privateBrowsing) {

@@ -19,7 +19,7 @@ package com.just.agentweb;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.view.ViewGroup;
-import android.webkit.WebView;
+import com.tencent.smtt.sdk.WebView;
 
 /**
  * Created by cenxiaozhong on 2017/7/1.

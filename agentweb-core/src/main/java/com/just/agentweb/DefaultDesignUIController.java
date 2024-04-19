@@ -16,6 +16,7 @@
 
 package com.just.agentweb;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.graphics.Color;
@@ -27,9 +28,10 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.JsPromptResult;
-import android.webkit.JsResult;
-import android.webkit.WebView;
+
+import com.tencent.smtt.export.external.interfaces.JsPromptResult;
+import com.tencent.smtt.export.external.interfaces.JsResult;
+import com.tencent.smtt.sdk.WebView;
 import android.widget.TextView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -137,7 +139,7 @@ public class DefaultDesignUIController extends DefaultUIController {
             }
 
             @Override
-            public void onBindViewHolder(BottomSheetHolder bottomSheetHolder, final int i) {
+            public void onBindViewHolder(BottomSheetHolder bottomSheetHolder, @SuppressLint("RecyclerView") final int i) {
                 TypedValue outValue = new TypedValue();
                 mActivity.getTheme().resolveAttribute(android.R.attr.selectableItemBackground, outValue, true);
                 bottomSheetHolder.mTextView.setBackgroundResource(outValue.resourceId);

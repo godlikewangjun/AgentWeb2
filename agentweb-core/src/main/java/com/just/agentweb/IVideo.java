@@ -17,7 +17,8 @@
 package com.just.agentweb;
 
 import android.view.View;
-import android.webkit.WebChromeClient;
+
+import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient;
 
 
 /**
@@ -28,7 +29,7 @@ import android.webkit.WebChromeClient;
 public interface IVideo {
 
 
-    void onShowCustomView(View view, WebChromeClient.CustomViewCallback callback);
+    void onShowCustomView(View view, IX5WebChromeClient.CustomViewCallback callback);
 
 
     void onHideCustomView();

@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
+import com.tencent.smtt.sdk.WebView;
 
 import com.just.agentweb.AgentWeb;
 import com.just.agentweb.AgentWebSettingsImpl;

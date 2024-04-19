@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
+import com.tencent.smtt.sdk.WebView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
