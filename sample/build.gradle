@@ -7,7 +7,6 @@ android {
 
     defaultConfig {
         applicationId "com.just.agentweb.sample"
-        namespace 'com.just.agentweb.sample'
         minSdkVersion 19
         targetSdkVersion TARGET_SDK_VERSION.toInteger()
         multiDexEnabled true
@@ -15,6 +14,7 @@ android {
         versionName VERSION_NAME
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
+    namespace 'com.just.agentweb.sample'
     signingConfigs {
         release {
             storeFile file("./keystore/keystore.jks")
@@ -26,7 +26,7 @@ android {
     buildTypes {
         release {
             signingConfig signingConfigs.release
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
@@ -45,8 +45,8 @@ android {
         abortOnError false
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     sourceSets {
