@@ -9,8 +9,6 @@ android {
         minSdkVersion 14
         targetSdkVersion TARGET_SDK_VERSION.toInteger()
         namespace 'com.just.agentweb'
-        versionCode 3
-        versionName VERSION_NAME
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 

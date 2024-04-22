@@ -8,8 +8,6 @@ android {
         minSdkVersion 14
         namespace 'com.just.agentweb.filechooser'
         targetSdkVersion TARGET_SDK_VERSION.toInteger()
-        versionCode 2
-        versionName VERSION_NAME
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
