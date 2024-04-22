@@ -53,7 +53,7 @@ publishing {
     publications {
         // Creates a Maven publication called "release".
         release(MavenPublication) {
-            groupId = 'com.wj.libs'
+            groupId = 'com.github.godlikewangjun'
             artifactId = 'agentweb-core'
             version = 'v1.0.0-x5'
         }

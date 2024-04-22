@@ -48,7 +48,7 @@ afterEvaluate {
         publications {
             // Creates a Maven publication called "release".
             release(MavenPublication) {
-                groupId = 'com.wj.libs'
+                groupId = 'com.github.godlikewangjun'
                 artifactId = 'agentweb-filechooser'
                 version = 'v1.0.0-x5'
             }
