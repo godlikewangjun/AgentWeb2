@@ -48,14 +48,15 @@ dependencies {
     compileOnly 'androidx.legacy:legacy-support-v4:1.0.0'
     compileOnly fileTree(include: ['*.jar'], dir: 'providedLibs')
 }
-
-publishing {
-    publications {
-        // Creates a Maven publication called "release".
-        release(MavenPublication) {
-            groupId = 'com.github.godlikewangjun'
-            artifactId = 'agentweb-core'
-            version = 'v1.0.0-x5'
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                groupId = 'com.github.godlikewangjun'
+                artifactId = 'agentweb-core'
+                version = 'v1.0.0-x5'
+            }
         }
     }
 }
